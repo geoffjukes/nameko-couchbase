@@ -20,7 +20,7 @@ class MyService(object):
 
     @rpc
     def get_thing(self, key):
-        value = self.couchbase.ket(key)
+        value = self.couchbase.get(key)
         return "{} is {}}".format(key, value)
 ```
 Couchbase URI is set in your config file
