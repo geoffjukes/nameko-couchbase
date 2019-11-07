@@ -4,7 +4,7 @@ from os import path
 here = path.abspath(path.dirname(__file__))
 
 setup(
-    name='nameko-couchbase',
+    name='nameko_couchbase',
     version='0.1.0',
     description='Nameko dependency for Couchbase',
     url='https://github.com/geoffjukes/nameko-couchbase',
