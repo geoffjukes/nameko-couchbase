@@ -5,7 +5,7 @@ here = path.abspath(path.dirname(__file__))
 
 setup(
     name='nameko-couchbase',
-    version='0.1.1',
+    version='0.1.2',
     description='Nameko dependency for Couchbase',
     url='https://github.com/geoffjukes/nameko-couchbase',
     author='Geoff Jukes',
