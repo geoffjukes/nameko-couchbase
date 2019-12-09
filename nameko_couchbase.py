@@ -4,7 +4,7 @@ from nameko.extensions import DependencyProvider
 from couchbase.cluster import Cluster
 from couchbase.cluster import PasswordAuthenticator
 
-COUCHBASE_KEY = 'COUCHBASE_URI'
+COUCHBASE_KEY = 'COUCHBASE'
 
 
 class Couchbase(DependencyProvider):
