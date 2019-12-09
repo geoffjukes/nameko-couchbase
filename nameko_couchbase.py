@@ -1,4 +1,4 @@
-from urllib.parse import urlparse
+from urllib.parse import urlparse, urlencode
 
 from nameko.extensions import DependencyProvider
 from couchbase.cluster import Cluster
@@ -15,9 +15,11 @@ class Couchbase(DependencyProvider):
         self.bucket = bucket
 
     def setup(self):
-        c = urlparse(self.container.config[COUCHBASE_KEY])
-        self.authenticator = PasswordAuthenticator(c.username, c.password)
-        self.cluster = Cluster('{}://{}'.format(c.scheme,c.hostname))
+        config = self.container.config[COUCHBASE_KEY]
+        uri = urlparse(config['URI'])
+        params = urlencode(config.get('CLIENT_CONFIG'), {})
+        self.authenticator = PasswordAuthenticator(uri.username, uri.password)
+        self.cluster = Cluster('{}://{}?{}'.format(uri.scheme, uri.hostname, params))
 
     def start(self):
         self.cluster.authenticate(self.authenticator)

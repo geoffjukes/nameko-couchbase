@@ -26,5 +26,8 @@ class MyService(object):
 Couchbase URI is set in your config file
 ```yaml
 AMQP_URI: 'amqp://guest:guest@localhost'
-COUCHBASE_URI: 'couchbase://user:password@localhost'
+COUCHBASE:
+  URI: 'couchbase://user:password@localhost'
+  CLIENT_CONFIG:
+    operation_timeout: 10
 ```
